@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang = "pt-br">
+
+<head>
+
+    <title>TV Gif - Avengers</title>
+
+</head>
+
+<body>
+
+    <div class="container container-padding50 js-container" style="text-align: center;"></div>
+
+    <script type="text/javascript">
+
+        var container = document.querySelector(".js-container")
+        var url = `http://api.giphy.com/v1/gifs/search?q=avengers&api_key=dc6zaTOxFJmzC`
+        var giphy = new XMLHttpRequest()
+        giphy.open('GET', url)
+        giphy.send()
+        console.log(giphy)
+        giphy.addEventListener('load', e => {
+            let objeto = JSON.parse(e.target.response)
+            console.log(objeto)
+            for (var i = 0; i < 5; i++) {
+                assync(i)
+            }
+            function assync(i) {
+                setTimeout(() => {
+                    console.log(i)
+                    container.innerHTML =
+                        `<img src = ${objeto.data[i].images.fixed_height.url} width="500px"> </img>`
+                }, 5000 * i);
+            }
+        })
+
+    </script>
+
+</body>
+
+</html>
