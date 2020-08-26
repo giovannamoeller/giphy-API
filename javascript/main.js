@@ -15,7 +15,7 @@ function click() {
     var container = document.querySelector(".js-container")
     container.innerHTML = ""
     let gif = input.value
-    var url = `http://api.giphy.com/v1/gifs/search?q=${gif}&api_key=dc6zaTOxFJmzC`
+    var url = `https://api.giphy.com/v1/gifs/search?q=${gif}&api_key=dc6zaTOxFJmzC`
     // Requisição AJAX - conceito em Javascript de pegar dados sem dar refresh na página
     var giphy = new XMLHttpRequest()
     giphy.open('GET', url)
